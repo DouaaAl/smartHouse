@@ -1,167 +1,112 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
+.nav {
+  background-color: #0EA5E9; 
+  display: flex;
+  padding: 15px;
+  justify-content: space-around;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+.nav li {
+  list-style: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
+.nav li:hover {
+  background-color: #06B6D4;
+  color: #FFFFFF;
 }
 
 .main {
   display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  gap: 2rem;
+  margin: 4rem auto;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+.main .text {
+  transform: translateY(-120px);
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+.main .text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #0596d9, #28dffb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
 }
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+.main .text p {
+  color: #1E293B;
+  font-size: 1.25rem;
+  margin-top: 15px;
 }
 
-.ctas {
-  display: flex;
-  gap: 16px;
+.sectionTitle {
+  text-align: center;
+  margin: 4rem auto;
+  font-size: 2.5rem;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
+.sectionTitle:nth-of-type(1){
+  color: #0EA5E9;
+}
+
+.sectionTitle:nth-of-type(2){
+  color: rgb(255, 174, 0);
+}
+
+.section {
+  width: 90%;
+  margin: 2rem auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.section > * {
+  width: 30%;
+  text-align: center;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+@media (max-width: 1024px) {
+  .main .text h1 {
+    font-size: 2.5rem;
   }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+  .main .text p {
+    font-size: 1.1rem;
   }
 }
 
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
+@media (max-width: 768px) {
   .main {
-    align-items: center;
+    flex-direction: column;
+    margin: 2rem auto;
+  }
+  .main .text {
+    transform: translateY(0);
   }
 
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
+  .section {
     flex-direction: column;
   }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+@media (max-width: 480px) {
+  .main .text h1 {
+    font-size: 2rem;
+  }
+  .main .text p {
+    font-size: 1rem;
+  }
+  .sectionTitle {
+    font-size: 2rem;
   }
 }
